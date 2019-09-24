@@ -16,6 +16,7 @@ class Doctors::SessionsController < Devise::SessionsController
         sign_in(@patient, scope: :patient)
         redirect_to root_path
       else
+        @doctor = Doctor.new
         render :new
       end
     else
