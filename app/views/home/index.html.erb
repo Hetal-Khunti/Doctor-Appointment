@@ -11,7 +11,7 @@
         <td><%= doctor.full_name %></td>
         <td><%= doctor.specialist %></td>
         <td><%= doctor.email %></td>
-        <td><%= link_to 'Add', new_appointment_path(id: doctor.id), class:"ui button red inverted" %></td>
+        <td><%= link_to 'Add Appointment', new_appointment_path(id: doctor.id), class:"ui button red inverted" %></td>
       </tr>
     <% end %>
   </tbody>

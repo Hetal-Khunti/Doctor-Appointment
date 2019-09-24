@@ -20,9 +20,9 @@
         <td><%= appointment.end_time.strftime("%Y-%m-%d %H:%M %p") %></td>
         <td><%= appointment.patient.full_name %></td>
         <td>
-          <% if Time.now.to_datetime < appointment.end_time.to_datetime %>
+          <%# if Time.now.to_datetime < appointment.end_time.to_datetime %>
             <%= link_to 'Send Prescription', appointment_send_prescription_path(appointment.id) %>
-          <% end %>
+          <%# end %>
         </td>
         <td><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
