@@ -1,0 +1,62 @@
+<%= form_with(model: appointment, local: true) do |form| %>
+  <% if appointment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+
+      <ul>
+      <% appointment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_time %>
+    <%= form.text_field :start_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_time %>
+    <%= form.text_field :end_time %>
+    <%= form.hidden_field :doctor_id, value: @doctor.id %>
+    <%= form.hidden_field :patient_id, value: current_patient.id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  
+  $(document).ready(function () {
+    $("#appointment_start_time" ).datetimepicker({
+          dateFormat: 'yy-mm-dd',
+          timeFormat: 'HH:mm:ss',
+          step: 30,
+          onShow: function () {
+              this.setOptions({
+                  maxDate:$('#appointment_end_time').val()?$('#appointment_end_time').val():false,
+                 // maxTime:$('#appointment_end_time').val()?$('#appointment_end_time').val():false
+              });
+          }
+    }).attr('readonly', 'readonly');
+    $( "#appointment_end_time" ).datetimepicker({
+        dateFormat: 'yy-mm-dd',
+        timeFormat: 'HH:mm:ss',
+        step: 30,
+          onShow: function () {
+              this.setOptions({
+                  minDate:$('#appointment_start_time').val()?$('#appointment_start_time').val():false,
+                 // minTime:$('#appointment_start_time').val()?$('#appointment_start_time').val():false
+              });
+          }                    
+    }).attr('readonly', 'readonly'); 
+  });
+</script>

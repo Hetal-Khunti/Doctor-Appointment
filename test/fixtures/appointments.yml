@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  start_time: 2019-09-24 11:43:48
+  end_time: 2019-09-24 11:43:48
+  doctor_id: 1
+  patient_id: 1
+
+two:
+  description: MyText
+  start_time: 2019-09-24 11:43:48
+  end_time: 2019-09-24 11:43:48
+  doctor_id: 1
+  patient_id: 1
